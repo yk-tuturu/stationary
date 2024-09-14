@@ -50,6 +50,7 @@ public class Spawner : MonoBehaviour
 
         SpriteRenderer sprite = prefabToSpawn.GetComponent<SpriteRenderer>();
         sprite.sprite = Instantiate(spriteList[index]) as Sprite;
+        
         Item item = prefabToSpawn.GetComponent<Item>();
         item.index = (int)Mathf.Floor(index/2);
 
