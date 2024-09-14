@@ -14,7 +14,6 @@ public class Item : MonoBehaviour
     [SerializeField] private int index = 1;
 
     private bool isActive = true;
-    
 
 
     void Update()
@@ -24,6 +23,7 @@ public class Item : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (!isActive) return;
 
         rb.velocity = Vector2.down * speed;
@@ -44,16 +44,18 @@ public class Item : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.gameObject.GetComponent<Box>().index == index)
         {
             Debug.Log("Success!");
+            success();
         }
         else
         {
             Debug.Log("Fail");
+            fail();
         }
     }
 
@@ -69,4 +71,14 @@ public class Item : MonoBehaviour
         rb.velocity = Vector2.right * 20f;
     }
 
+    void success()
+    {
+        rb.velocity = Vector2.zero;
+        GameManager.instance.score += 100;
+    }
+    void fail()
+    {
+        rb.velocity = Vector2.zero;
+        GameManager.instance.health--;
+    }
 }
