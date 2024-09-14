@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         gamePause = true;
         Time.timeScale = 0f;
         clearUI.gameObject.SetActive(true);
+        ///////
     }
 
     public void decreaseHealth() {
