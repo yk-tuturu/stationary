@@ -18,15 +18,15 @@ public class Item : MonoBehaviour
 
     void Update()
     {
-        
+        if (!isActive) return;
+
+        rb.velocity = Vector2.down * speed;
     }
 
     private void FixedUpdate()
     {
         
-        if (!isActive) return;
-
-        rb.velocity = Vector2.down * speed;
+        
     }
 
     private void OnTriggerStay2D(Collider2D collider)
@@ -46,16 +46,16 @@ public class Item : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.gameObject.GetComponent<Box>().index == index)
+        if (collision.tag == "Box")
         {
-            Debug.Log("Success!");
-            success();
-        }
-        else
-        {
-            Debug.Log("Fail");
-            fail();
+            if (collision.gameObject.GetComponent<Box>().index == index)
+            {
+                success();
+            }
+            else
+            {
+                fail();
+            }
         }
     }
 
@@ -75,10 +75,12 @@ public class Item : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         GameManager.instance.score += 100;
+        LeanTween.scale(gameObject, Vector3.zero, 0.3f);
     }
     void fail()
     {
         rb.velocity = Vector2.zero;
         GameManager.instance.health--;
+        LeanTween.scale(gameObject, Vector3.zero, 0.3f);
     }
 }
