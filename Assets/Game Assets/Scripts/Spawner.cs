@@ -13,6 +13,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float enemiesPerSecond = 0.3f;
 
     [SerializeField] private Object[] spriteList;
+    [SerializeField] private int maxIndex;
 
 
     private float timeSinceLastSpawn;
@@ -45,12 +46,12 @@ public class Spawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        int index = (int)Mathf.Round(Random.Range(0, 3));
+        int index = (int)Mathf.Round(Random.Range(0, maxIndex));
         GameObject prefabToSpawn = enemyprefabs[0];
 
         SpriteRenderer sprite = prefabToSpawn.GetComponent<SpriteRenderer>();
         sprite.sprite = Instantiate(spriteList[index]) as Sprite;
-        
+
         Item item = prefabToSpawn.GetComponent<Item>();
         item.index = (int)Mathf.Floor(index/2);
 

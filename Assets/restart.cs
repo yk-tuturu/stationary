@@ -19,7 +19,8 @@ public class restart : MonoBehaviour
 
     public void RestartLevel() {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("game");
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
     public void BackToMenu() {

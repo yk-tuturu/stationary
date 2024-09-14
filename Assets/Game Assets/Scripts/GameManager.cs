@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI healthText;
 
+    [SerializeField] private int level;
+
     private void Start()
     {
         Time.timeScale = 1f;
