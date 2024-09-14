@@ -12,36 +12,32 @@ public class Item : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private int index = 1;
+    [SerializeField] private bool inRange = false;
 
     private bool isActive = true;
+
+    void Start() {
+        rb.velocity = Vector2.down * speed;
+    }
 
 
     void Update()
     {
-        if (!isActive) return;
 
-        rb.velocity = Vector2.down * speed;
-    }
-
-    private void FixedUpdate()
-    {
-        
-        
-    }
-
-    private void OnTriggerStay2D(Collider2D collider)
-    {
-        if (collider.tag == "Scanner")
-        {
-            
+        if (inRange) {
             if (Input.GetKeyDown(KeyCode.A)){
                 moveLeft();
             } else if (Input.GetKeyDown(KeyCode.D))
             {
                 moveRight();
             }
-
         }
+    }
+
+    private void FixedUpdate()
+    {
+        
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -57,30 +53,38 @@ public class Item : MonoBehaviour
                 fail();
             }
         }
+
+        if (collision.tag == "Scanner") {
+            inRange = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision) {
+        if (collision.tag == "Scanner") {
+            inRange = false;
+        }
     }
 
     void moveLeft()
     {
         Debug.Log("move left");
-        isActive = false;
         rb.velocity = Vector2.left * 20f;
     }
     void moveRight()
     {
-        isActive = false;
         rb.velocity = Vector2.right * 20f;
     }
 
     void success()
     {
         rb.velocity = Vector2.zero;
-        GameManager.instance.score += 100;
+        GameManager.instance.updateScore(100);
         LeanTween.scale(gameObject, Vector3.zero, 0.3f);
     }
     void fail()
     {
         rb.velocity = Vector2.zero;
-        GameManager.instance.health--;
+        GameManager.instance.decreaseHealth();
         LeanTween.scale(gameObject, Vector3.zero, 0.3f);
     }
 }

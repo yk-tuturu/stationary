@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,17 +21,18 @@ public class GameManager : MonoBehaviour
     public GameObject overUI;
     public GameObject clearUI;
 
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI healthText;
+
     private void Start()
     {
+        Time.timeScale = 1f;
         health = maxHealth;
     }
 
     void Update()
     {
-        if (health == 0)
-        {
-            GameOver();
-        }
+        
             
 
     }
@@ -47,5 +49,19 @@ public class GameManager : MonoBehaviour
         gamePause = true;
         Time.timeScale = 0f;
         clearUI.gameObject.SetActive(true);
+    }
+
+    public void decreaseHealth() {
+        health--;
+        healthText.text = "Health: " + health.ToString();
+        if (health == 0)
+        {
+            GameOver();
+        }
+    }
+
+    public void updateScore(int addedScore) {
+        score += addedScore;
+        scoreText.text = "Score: " + score.ToString();
     }
 }
