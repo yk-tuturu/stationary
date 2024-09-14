@@ -368,6 +368,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 3d869a869357f4849b6d2bcc3468f7fc, type: 3}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2607598607902053458, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
       propertyPath: index
       value: 1
@@ -1188,6 +1200,7 @@ MonoBehaviour:
   clearUI: {fileID: 966959592}
   scoreText: {fileID: 1722979127}
   healthText: {fileID: 639659308}
+  level: 2
 --- !u!4 &1230465024
 Transform:
   m_ObjectHideFlags: 0
@@ -1455,6 +1468,7 @@ MonoBehaviour:
   baseEnemies: 20
   enemiesPerSecond: 0.5
   spriteList: []
+  maxIndex: 8
 --- !u!4 &1726372230
 Transform:
   m_ObjectHideFlags: 0
@@ -2120,6 +2134,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 7668b5021e4e8a943b008215230980d5, type: 3}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2607598607902053458, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
       propertyPath: index
       value: 2
@@ -2343,6 +2369,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: da6e7ca4c3ed9c94083911992690be80, type: 3}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2607598607902053458, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
       propertyPath: index
       value: 3
@@ -2888,6 +2926,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d481941a36ededa4fa609fa4821eaacc, type: 3}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1665279549082225481, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2607598607902053458, guid: b0800589e5f097142853fd225fc5b15e, type: 3}
       propertyPath: index
       value: 0

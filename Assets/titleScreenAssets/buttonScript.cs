@@ -13,6 +13,8 @@ public class buttonScript : MonoBehaviour
     public GameObject panel; 
     public bool disableHover;
     public RectTransform canvas;
+
+    public string levelToLoad;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +74,6 @@ public class buttonScript : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("game");
+        SceneManager.LoadScene(levelToLoad);
     }
 }
