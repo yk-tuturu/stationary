@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Scanner
   - LevelButton
+  - Box
   layers:
   - Default
   - TransparentFX
