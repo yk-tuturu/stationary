@@ -44,4 +44,5 @@ public class Spawner : MonoBehaviour
         GameObject prefabToSpawn = enemyprefabs[index];
         Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
     }
+
 }
