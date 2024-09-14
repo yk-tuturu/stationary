@@ -12,6 +12,7 @@ public class buttonScript : MonoBehaviour
     public bool isMoved; 
     public GameObject panel; 
     public bool disableHover;
+    public RectTransform canvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,10 @@ public class buttonScript : MonoBehaviour
             panel.transform.localScale = new Vector3(0, 1, 1);
         }
         ogPos = transform.position;
+        if (gameObject.tag == "LevelButton") {
+            canvas = transform.parent.GetComponent<RectTransform>();
+        }
+        
     }
 
     // Update is called once per frame
@@ -50,14 +55,18 @@ public class buttonScript : MonoBehaviour
             button.GetComponent<buttonScript>().closePanel();
         }
 
-        LeanTween.moveX(gameObject, 200f, 0.2f);
+        float center = canvas.TransformPoint(canvas.rect.center).x;
+
+        LeanTween.moveX(gameObject, center-250f, 0.2f);
         LeanTween.scale(panel, new Vector3(1, 1, 1), 0.2f);
         LeanTween.scale(gameObject, originalScale, 0.1f);
         disableHover = true;
     }
 
     public void closePanel() {
-        LeanTween.moveX(gameObject, ogPos.x, 0.2f);
+        float center = canvas.TransformPoint(canvas.rect.center).x;
+
+        LeanTween.moveX(gameObject, center, 0.2f);
         LeanTween.scale(panel, new Vector3(0, 1, 1), 0.2f);
         disableHover = false;
     }
