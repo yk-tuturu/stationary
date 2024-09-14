@@ -1332,7 +1332,7 @@ MonoBehaviour:
   baseEnemies: 20
   enemiesPerSecond: 0.5
   spriteList: []
-  maxIndex: 0
+  maxIndex: 3
 --- !u!4 &1726372230
 Transform:
   m_ObjectHideFlags: 0
