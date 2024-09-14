@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int baseEnemies = 20;
     [SerializeField] private float enemiesPerSecond = 0.3f;
 
+    [SerializeField] private Object[] spriteList;
+
 
     private float timeSinceLastSpawn;
     private int enemiesLeftToSpawn;
@@ -20,6 +23,8 @@ public class Spawner : MonoBehaviour
     {
         isSpawning = true;
         enemiesLeftToSpawn = baseEnemies;
+
+        spriteList = Resources.LoadAll("sprites", typeof(Sprite));
     }
 
     void Update()
@@ -40,9 +45,14 @@ public class Spawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        int index = Random.Range(0, enemyprefabs.Length);
-        GameObject prefabToSpawn = enemyprefabs[index];
-        Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
-    }
+        int index = (int)Mathf.Round(Random.Range(0, 3));
+        GameObject prefabToSpawn = enemyprefabs[0];
 
+        SpriteRenderer sprite = prefabToSpawn.GetComponent<SpriteRenderer>();
+        sprite.sprite = Instantiate(spriteList[index]) as Sprite;
+        Item item = prefabToSpawn.GetComponent<Item>();
+        item.index = (int)Mathf.Floor(index/2);
+
+        Instantiate(prefabToSpawn, transform.position,  Quaternion.Euler(0, 0, Random.Range(0, 360)));
+    }
 }

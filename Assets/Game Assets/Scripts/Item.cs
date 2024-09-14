@@ -11,9 +11,10 @@ public class Item : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float speed = 5f;
-    [SerializeField] private int index = 1;
+    
     [SerializeField] private bool inRange = false;
 
+    public int index = 1;
     private bool isActive = true;
 
     void Start() {
