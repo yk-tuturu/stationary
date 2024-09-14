@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject[] enemyprefabs;
 
     [Header("Attributes")]
-    [SerializeField] private int baseEnemies = 20;
+    //[SerializeField] private int baseEnemies = 20;
     [SerializeField] private float enemiesPerSecond = 0.3f;
 
     [SerializeField] private Object[] spriteList;
@@ -17,13 +17,13 @@ public class Spawner : MonoBehaviour
 
 
     private float timeSinceLastSpawn;
-    private int enemiesLeftToSpawn;
+    //private int enemiesLeftToSpawn;
     private bool isSpawning = false;
 
     private void Start()
     {
         isSpawning = true;
-        enemiesLeftToSpawn = baseEnemies;
+        //enemiesLeftToSpawn = baseEnemies;
 
         spriteList = Resources.LoadAll("sprites", typeof(Sprite));
     }
@@ -35,10 +35,10 @@ public class Spawner : MonoBehaviour
 
         timeSinceLastSpawn += Time.deltaTime;
 
-        if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0)
+        if (timeSinceLastSpawn >= (1f / enemiesPerSecond))
         {
             SpawnEnemy();
-            enemiesLeftToSpawn--;
+            //enemiesLeftToSpawn--;
 
             timeSinceLastSpawn = 0f;
         }

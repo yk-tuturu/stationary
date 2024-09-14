@@ -13,8 +13,9 @@ public class GameManager : MonoBehaviour
 
     [Header("# Player Info")]
     public int health;
-    public int maxHealth = 5;
+    public int maxHealth = 3;
     public int score;
+    public int scoreTarget;
     public bool gamePause = false;
 
     [Header("# Game Object")]
@@ -55,7 +56,6 @@ public class GameManager : MonoBehaviour
 
     public void decreaseHealth() {
         health--;
-        healthText.text = "Health: " + health.ToString();
         if (health == 0)
         {
             GameOver();
@@ -65,5 +65,9 @@ public class GameManager : MonoBehaviour
     public void updateScore(int addedScore) {
         score += addedScore;
         scoreText.text = "Score: " + score.ToString();
+
+        if (score >= scoreTarget) {
+            GameClear();
+        }
     }
 }

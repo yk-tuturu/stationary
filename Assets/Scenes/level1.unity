@@ -1059,6 +1059,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 3
   score: 0
+  scoreTarget: 1000
   gamePause: 0
   overUI: {fileID: 597173149}
   clearUI: {fileID: 966959592}
@@ -1329,7 +1330,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyprefabs:
   - {fileID: 8969832059343898599, guid: f719deebc5c8910458eef107e55392fd, type: 3}
-  baseEnemies: 20
   enemiesPerSecond: 0.5
   spriteList: []
   maxIndex: 3

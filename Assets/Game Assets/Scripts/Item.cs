@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.SceneManagement;
 
 public class Item : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class Item : MonoBehaviour
     private bool isActive = true;
 
     void Start() {
+        if (SceneManager.GetActiveScene().name == "level3") {
+            speed = 7f;
+        }
         rb.velocity = Vector2.down * speed;
     }
 
