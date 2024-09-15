@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
 
     private float timeSinceLastSpawn;
     //private int enemiesLeftToSpawn;
-    private bool isSpawning = false;
+    public bool isSpawning = false;
 
     private void Start()
     {

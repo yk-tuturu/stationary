@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class restart : MonoBehaviour
 {
+    public string nextLevel; 
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +27,9 @@ public class restart : MonoBehaviour
     public void BackToMenu() {
         Time.timeScale = 1f;
         SceneManager.LoadScene("title");
+    }
+
+    public void NextLevel() {
+        SceneManager.LoadScene(nextLevel);
     }
 }
